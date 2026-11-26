@@ -1,0 +1,152 @@
+<div class="dashboard-container">
+  <h1>👨🏻‍💼 Admin Dashboard</h1>
+  <div class="results">
+     <div class="list-section">
+    <app-user-list *ngIf="showAll"></app-user-list>
+    <app-user-list *ngIf="showUsers" roleFilter="USER"></app-user-list>
+    <app-user-list *ngIf="showAdmins" roleFilter="ADMIN"></app-user-list>
+    <app-common-list *ngIf="showFlights"></app-common-list>
+    <app-booking-list *ngIf="showBookings"></app-booking-list>
+    <app-checkin-list *ngIf="showCheckins"></app-checkin-list>
+    
+    <div class="delete-flight-section" *ngIf="showDeleteFlight">
+        <h3>🗑️ Delete Flight</h3>
+
+        <input
+            type="text"
+            [(ngModel)]="flightNumberToDelete"
+            name="deleteFlightNumber"
+            #deleteFlightNumberRef="ngModel"
+            required
+            placeholder="Enter Flight Number"
+            class="delete-input"
+        />
+        <div class="error" *ngIf="deleteFlightNumberRef.invalid && (deleteFlightNumberRef.touched || deleteFlightNumberRef.dirty)">
+            Flight number must not be blank.
+        </div>
+
+        <div class="buttons">
+            <button class="dashboard-btn" (click)="deleteFlight()">Confirm Delete</button>
+            <button class="cancel-btn" type="button" (click)="refreshPage()">Cancel</button>
+        </div>
+
+        <div class="message success" *ngIf="deleteSuccess">{{ deleteSuccess }}</div>
+        <div class="message error" *ngIf="deleteError">{{ deleteError }}</div>
+    </div>
+
+
+    <div class="update-flight-section" *ngIf="showUpdateFlight">
+        <h2>✏️ Update Flight</h2>
+
+        <form (ngSubmit)="updateFlight()" #updateForm="ngForm" >
+            <input
+                type="text"
+                [(ngModel)]="flightNumberToUpdate"
+                name="flightNumber"
+                #flightNumberRef="ngModel"
+                required
+                placeholder="Enter Flight Number"
+                class="update-input"
+            />
+            <div class="error" *ngIf="flightNumberRef.invalid && (flightNumberRef.touched || flightNumberRef.dirty)">
+                Flight number must not be blank.
+            </div>
+
+            <input
+                type="text"
+                [(ngModel)]="updatedAirline"
+                name="airline"
+                #airlineRef="ngModel"
+                required
+                placeholder="New Airline Name"
+                class="update-input"
+            />
+            <div class="error" *ngIf="airlineRef.invalid && (airlineRef.touched || airlineRef.dirty)">
+                Airline name must not be blank.
+            </div>
+
+            <div *ngFor="let type of seatTypes">
+                <label>{{ type }} Fare:</label>
+                <input
+                type="number"
+                [(ngModel)]="updatedFareDetails[type]"
+                name="{{ type }}"
+                #fareRef="ngModel"
+                step="0.01"
+                required
+                min="0.01"
+                class="update-input"
+                />
+                <div class="error" *ngIf="fareRef.invalid && (fareRef.touched || fareRef.dirty)">
+                <span *ngIf="fareRef.errors?.['required']">{{ type }} fare is required.</span>
+                <span *ngIf="fareRef.errors?.['min']">{{ type }} fare must be greater than 0.</span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="dashboard-btn" type="submit">Submit Update</button>
+                <button class="cancel-btn" type="button" (click)="refreshPage()">Cancel</button>
+            </div>
+        </form>
+
+        <div class="message success" *ngIf="updateSuccess">{{ updateSuccess }}</div>
+        <div class="message error" *ngIf="updateError">{{ updateError }}</div>
+    </div>
+
+    <div class="flight-info-section" *ngIf="showFlightInfo">
+        <h3>🔍 View Flight Info</h3>
+
+        <input
+            type="text"
+            [(ngModel)]="flightNumberToView"
+            name="flightNumberToView"
+            #flightInfoRef="ngModel"
+            required
+            placeholder="Enter Flight Number"
+            class="update-input"
+        />
+        <div class="error" *ngIf="flightInfoRef.invalid && (flightInfoRef.touched || flightInfoRef.dirty)">
+            Flight number must not be blank.
+        </div>
+
+       <div class="buttons">
+         <button class="dashboard-btn" (click)="viewFlightInfo()">Get Info</button>
+         <button class="cancel-btn" (click)="resetViews()">cancel</button>
+       </div>
+        <div class="message error" *ngIf="flightInfoError">{{ flightInfoError }}</div>
+
+        <div *ngIf="flightInfo" class="flight-details">
+            <h4>Flight Details</h4>
+            <p><strong>Flight #:</strong> {{ flightInfo.flightNumber }}</p>
+            <p><strong>Airline:</strong> {{ flightInfo.airline }}</p>
+            <p><strong>Source:</strong> {{ flightInfo.source }}</p>
+            <p><strong>Destination:</strong> {{ flightInfo.destination }}</p>
+            <p><strong>Departure Date:</strong> {{ flightInfo.departureDate }}</p>
+            <p><strong>Departure Time:</strong> {{ flightInfo.departureTime }}</p>
+            <div>
+            <strong>Fare Details:</strong>
+            <div *ngFor="let fare of flightInfo.fareDetails?.priceDetails | keyvalue">
+                {{ fare.key }}: ₹{{ fare.value }}
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="dashboard-options">
+    <button class="dashboard-btn" (click)="navigateToRegisterAdmin()">➕ Register New Admin</button>
+    <button class="dashboard-btn" (click)="toggleView('ALL')">👥 View All Users</button>
+    <button class="dashboard-btn" (click)="toggleView('USER')">🧑 View Only Users</button>
+    <button class="dashboard-btn" (click)="toggleView('ADMIN')">🛡️ View Only Admins</button>
+    <button class="dashboard-btn" (click)="navigateToAddFlight()">✈️ Add New Flight</button> 
+    <button class="dashboard-btn" (click)="toggleView('FLIGHTS')">📋 View All Flights</button>
+    <button class="dashboard-btn" (click)="toggleDeleteFlight()">🗑️ Delete Flight</button>
+    <button class="dashboard-btn" (click)="toggleUpdateFlight()">✏️ Update Flight</button>
+    <button class="dashboard-btn" (click)="toggleFlightInfo()">🔍 View Flight Info</button>
+    <button class="dashboard-btn" (click)="toggleView('BOOKINGS')">📑 View All Bookings</button>
+    <button class="dashboard-btn" (click)="toggleView('CHECKINS')">🧾 View All Check-ins</button>
+  </div>
+
+ 
+</div>

@@ -1,0 +1,25 @@
+<div class="cancel-booking-container">
+  <div *ngIf="!isUserLoggedIn" class="not-logged-in">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isUserLoggedIn" class="logged-in">
+    <h2>❌ Cancel Booking</h2>
+
+    <div class="input-container">
+      <label>Booking ID:</label>
+      <input [(ngModel)]="bookingId" (change)="resetCancelError()" (blur)="touched = true" required />
+
+      <div class="error-box" *ngIf="touched && !bookingId.trim()">
+        Booking ID must not be blank.
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button [disabled]="!bookingId.trim()" (click)="cancelBooking()">Cancel Booking</button>
+    </div>
+    <div class="message success" *ngIf="cancelMessage">{{ cancelMessage }}</div>
+    <div class="message error" *ngIf="cancelError">{{ cancelError }}</div>
+  </div>
+</div>

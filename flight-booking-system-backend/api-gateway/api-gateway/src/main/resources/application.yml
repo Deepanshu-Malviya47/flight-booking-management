@@ -1,0 +1,114 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+
+        - id: mail-service
+          uri: lb://mail-service
+          predicates:
+            - Path=/api/mail/**
+
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - AuthenticationFilter
+
+        - id: flight-search-service
+          uri: lb://flight-search-service
+          predicates:
+            - Path=/api/flights/**
+          filters:
+            - AuthenticationFilter
+
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/payment/**
+
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/bookings/**
+          filters:
+            - AuthenticationFilter
+
+        - id: checkin-service
+          uri: lb://checkin-service
+          predicates:
+            - Path=/api/checkin/**
+          filters:
+            - AuthenticationFilter
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - http://localhost:4200
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Authorization
+              - Content-Type
+            exposedHeaders:
+              - Authorization
+            allowCredentials: true
+
+
+
+
+
+role-access:
+  unauthorized:
+      USER:
+      - /api/auth/register/admin
+      - /api/auth/verify-otp/admin
+      - /api/auth/all
+      - /api/auth/all/user
+      - /api/auth/all/admin
+      - /api/flights/add
+      - /api/flights/add/all
+      - /api/flights/all
+      - /api/flights/delete
+      - /api/flights/update
+      - /api/bookings/all
+      - /api/bookings/delete/flight/
+      - /api/checkin/all
+      ADMIN:
+
+

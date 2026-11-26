@@ -1,0 +1,130 @@
+.flight-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3rem;
+  margin-top: -10px;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  overflow-y: auto;
+  background: url('../../assets/images/admin-register-bg.jpg') no-repeat center center;
+  background-size: cover;
+  height: 55vh;
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    padding: 0.6rem 1.2rem;
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0097a7;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: #47065b;
+    margin-bottom: 1rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+    color: #1e1e2f;
+    margin-bottom: 1rem;
+    margin-top: -5px;
+  }
+
+  input.update-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .error {
+    margin-top: 0.5rem;
+    color: #d32f2f;
+    font-weight: 500;
+    background-color: #ffe6e6;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .dashboard-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0097a7;
+    }
+  }
+
+  .flight-details {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    strong {
+      color: #1e1e2f;
+    }
+  }
+}
+
+.outer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 160px;
+  height: 55vh;
+}
+
+.div1{
+  position: relative;
+ min-width: 300px;
+  align-items: flex-end;
+}
+
+
+#flight-card {
+text-align: center;
+  width: 100%;
+  max-height: 27rem;
+  border: 1px solid #ccc;
+  padding: 15px;
+  color: #031660;
+  border-radius: 8px;
+  background-color: #6dc5dbc3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  min-width: 300px;
+  box-shadow: 0 5px 12px rgba(2, 2, 2, 0.521);
+}
+

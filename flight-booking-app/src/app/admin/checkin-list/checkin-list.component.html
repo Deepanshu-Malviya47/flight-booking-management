@@ -1,0 +1,32 @@
+<div class="checkin-list-container">
+  <h3>🧾 All Check-ins</h3>
+
+  <div *ngIf="checkins.length === 0 && !errorMessage" class="empty-box">
+    No check-ins available.
+  </div>
+
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="checkins.length > 0">
+    <thead>
+      <tr>
+        <th>Check-in ID</th>
+        <th>Booking ID</th>
+        <th>Seat Type</th>
+        <th>No. of Seats</th>
+        <th>Assigned Seats</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let checkin of checkins">
+        <td>{{ checkin.checkinId }}</td>
+        <td>{{ checkin.bookingId }}</td>
+        <td>{{ checkin.seatType }}</td>
+        <td>{{ checkin.noOfSeats }}</td>
+        <td>{{ checkin.assignedSeats.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

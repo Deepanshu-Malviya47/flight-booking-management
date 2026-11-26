@@ -1,0 +1,43 @@
+<div class="booking-info-container">
+  <div *ngIf="!isUserLoggedIn" class="not-logged-in">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isUserLoggedIn" class="logged-in">
+    <h2>🔍 Booking Information</h2>
+    <div class="input-container">
+    <label for="bookingId">Booking ID:</label>
+    <input id="bookingId" [(ngModel)]="bookingId" (blur)="touched = true" />
+
+    <div class="error-box" *ngIf="touched && !bookingId.trim()">
+      ❌ Booking ID is required.
+    </div>
+    </div>
+    <div class="button-container">
+     <button (click)="fetchBooking()">Get Booking Info</button>
+    </div>
+    
+
+    
+
+    
+    <div class="error-box" *ngIf="bookingError && bookingId.trim()">
+      ❌ {{ bookingError }}
+    </div>
+
+    <div *ngIf="booking" class="booking-details">
+      <table>
+        <tr><th>Booking ID</th><td>{{ booking.bookingId }}</td></tr>
+        <tr><th>Flight Number</th><td>{{ booking.flightNumber }}</td></tr>
+        <tr><th>Name</th><td>{{ booking.name }}</td></tr>
+        <tr><th>Email</th><td>{{ booking.email }}</td></tr>
+        <tr><th>Contact</th><td>{{ booking.contact }}</td></tr>
+        <tr><th>Seat Type</th><td>{{ booking.seatType }}</td></tr>
+        <tr><th>Seats</th><td>{{ booking.noOfSeats }}</td></tr>
+        <tr><th>Status</th><td>{{ booking.bookingStatus }}</td></tr>
+        <tr><th>Payment Status</th><td>{{ booking.paymentStatus }}</td></tr>
+      </table>
+    </div>
+  </div>
+</div>

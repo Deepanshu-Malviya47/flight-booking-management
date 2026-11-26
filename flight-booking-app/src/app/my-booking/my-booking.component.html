@@ -1,0 +1,55 @@
+<div class="booking-list-container">
+  <div *ngIf="!isUserLoggedIn" class="not-logged-in">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isUserLoggedIn" class="logged-in">
+    <div class="nav-button">
+      <button routerLink="/confirm-booking">🔁 Go to Confirm Booking</button>
+    </div>
+
+    <h3>📄 My Bookings</h3>
+
+    <div *ngIf="bookings.length === 0 && !bookingError" class="empty-box">
+      No bookings found.
+    </div>
+
+    <div class="error-box" *ngIf="bookingError">
+      {{ bookingError }}
+    </div>
+
+    <div class="table-booking">
+        <table *ngIf="bookings.length > 0">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Flight #</th>
+          <th>Passenger Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Seat Type</th>
+          <th>Seats</th>
+          <th>Currency</th>
+          <th>Status</th>
+          <th>Payment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.bookingId }}</td>
+          <td>{{ booking.flightNumber }}</td>
+          <td>{{ booking.name }}</td>
+          <td>{{ booking.email }}</td>
+          <td>{{ booking.contact }}</td>
+          <td>{{ booking.seatType }}</td>
+          <td>{{ booking.noOfSeats }}</td>
+          <td>{{ booking.currency }}</td>
+          <td>{{ booking.bookingStatus }}</td>
+          <td>{{ booking.paymentStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

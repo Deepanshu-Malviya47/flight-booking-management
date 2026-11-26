@@ -1,0 +1,61 @@
+<div class="add-flight-container">
+  <h2>✈️ Add New Flight</h2>
+
+  <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+    <label>Airline:</label>
+    <input formControlName="airline" />
+    <div class="error" *ngIf="getControl('airline')?.touched && getControl('airline')?.invalid">
+      Airline is required.
+    </div>
+
+    <label>Source:</label>
+    <input formControlName="source" />
+    <div class="error" *ngIf="getControl('source')?.touched && getControl('source')?.invalid">
+      Source is required.
+    </div>
+
+    <label>Destination:</label>
+    <input formControlName="destination" />
+    <div class="error" *ngIf="getControl('destination')?.touched && getControl('destination')?.invalid">
+      Destination is required.
+    </div>
+
+    <label>Departure Date:</label>
+    <input type="date" formControlName="departureDate" />
+    <div class="error" *ngIf="getControl('departureDate')?.touched && getControl('departureDate')?.invalid">
+      Departure date is required.
+    </div>
+
+    <label>Departure Time:</label>
+    <input type="time" formControlName="departureTime" />
+    <div class="error" *ngIf="getControl('departureTime')?.touched && getControl('departureTime')?.invalid">
+      Departure time is required.
+    </div>
+
+    <fieldset formGroupName="fareDetails">
+      <legend>Fare Details</legend>
+      <div formGroupName="priceDetails">
+        <div *ngFor="let type of seatTypes">
+          <label>{{ type }}:</label>
+          <input type="number" [formControlName]="type" step="0.01" />
+          <div class="error" *ngIf="getControl('fareDetails.priceDetails.' + type)?.touched && getControl('fareDetails.priceDetails.' + type)?.invalid">
+            <span *ngIf="getControl('fareDetails.priceDetails.' + type)?.errors?.['required']">
+              {{ type }} price is required.
+            </span>
+            <span *ngIf="getControl('fareDetails.priceDetails.' + type)?.errors?.['min']">
+              {{ type }} price must be greater than 0.
+            </span>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="button-group">
+      <button type="submit" [disabled]="flightForm.invalid">Add Flight</button>
+      <button type="button" (click)="goBackToDashboard()">Cancel</button>
+    </div>
+  </form>
+
+  <div class="message success" *ngIf="successMessage">{{ successMessage }}</div>
+  <div class="message error" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>

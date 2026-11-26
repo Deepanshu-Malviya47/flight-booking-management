@@ -1,0 +1,38 @@
+<div class="register-container">
+  <h2>🧑‍💻 Create an Admin Account </h2>
+
+  <div>
+     <!-- Registration Form -->
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()" *ngIf="!otpSent">
+    <input formControlName="username" placeholder="Username" />
+    <div *ngIf="submitted && registerForm.get('username')?.invalid" class="error">
+      Username must be 3–20 characters, letters/numbers/underscores only
+    </div>
+
+    <input formControlName="email" type="email" placeholder="Email" />
+    <div *ngIf="submitted && registerForm.get('email')?.invalid" class="error">
+      Valid email is required
+    </div>
+
+    <input formControlName="password" type="password" placeholder="Password" />
+    <div *ngIf="submitted && registerForm.get('password')?.invalid" class="error">
+      Password must be 8+ chars, with uppercase, lowercase, digit & special character
+    </div>
+
+    <button type="submit">Send OTP</button>
+  </form>
+
+  <!-- OTP Verification Form -->
+  <form [formGroup]="otpForm" (ngSubmit)="onVerifyOtp()" *ngIf="otpSent">
+    <input formControlName="otp" placeholder="Enter OTP" />
+    <div *ngIf="otpForm.get('otp')?.touched && otpForm.get('otp')?.invalid" class="error">
+      OTP must be exactly 6 digits
+    </div>
+    <button type="submit">Verify & Register</button>
+  </form>
+
+  <!-- Feedback Messages -->
+  <div *ngIf="message" class="success-box">{{ message }}</div>
+  <div *ngIf="errorMessage" class="error-box">{{ errorMessage }}</div>
+  </div>
+</div>

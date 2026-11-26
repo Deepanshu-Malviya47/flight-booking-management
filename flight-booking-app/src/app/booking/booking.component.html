@@ -1,0 +1,54 @@
+<div class="booking-container">
+  <div *ngIf="!isUserLoggedIn" class="not-logged-in">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isUserLoggedIn" class="logged-in">
+    <h2>📝 Book Flight</h2>
+
+    <form #bookingForm="ngForm" (ngSubmit)="createBooking()" novalidate>
+      <label>Name:</label>
+      <input name="name" [(ngModel)]="bookingRequest.name" required #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="error">Name is required</div>
+
+      <label>Email:</label>
+      <input name="email" [(ngModel)]="bookingRequest.email" required email #email="ngModel" />
+      <div *ngIf="email.invalid && email.touched" class="error">
+        <span *ngIf="email.errors?.['required']">Email is required</span>
+        <span *ngIf="email.errors?.['email']">Invalid email format</span>
+      </div>
+
+      <label>Contact (10 digits):</label>
+      <input name="contact" [(ngModel)]="bookingRequest.contact" required pattern="^[0-9]{10}$" #contact="ngModel" />
+      <div *ngIf="contact.invalid && contact.touched" class="error">
+        <span *ngIf="contact.errors?.['required']">Contact is required</span>
+        <span *ngIf="contact.errors?.['pattern']">Contact must be a 10-digit number</span>
+      </div>
+
+      <label>Flight Number:</label>
+      <input name="flightNumber" [(ngModel)]="bookingRequest.flightNumber" required #flightNumber="ngModel" />
+      <div *ngIf="flightNumber.invalid && flightNumber.touched" class="error">Flight number is required</div>
+
+      <label>Seat Type:</label>
+      <select name="seatType" [(ngModel)]="bookingRequest.seatType" required #seatType="ngModel">
+        <option value="ECONOMY_CLASS">Economy</option>
+        <option value="BUSINESS_CLASS">Business</option>
+        <option value="FIRST_CLASS">First</option>
+        <option value="PREMIUM_CLASS">Premium</option>
+      </select>
+      <div *ngIf="seatType.invalid && seatType.touched" class="error">Seat type is required</div>
+
+      <label>Number of Seats:</label>
+      <input name="noOfSeats" type="number" [(ngModel)]="bookingRequest.noOfSeats" required min="1" #noOfSeats="ngModel" />
+      <div *ngIf="noOfSeats.invalid && noOfSeats.touched" class="error">
+        <span *ngIf="noOfSeats.errors?.['required']">Number of seats is required</span>
+        <span *ngIf="noOfSeats.errors?.['min']">At least one seat should be booked</span>
+      </div>
+
+      <button type="submit" [disabled]="bookingForm.invalid">Create Booking & Pay</button>
+    </form>
+
+    <div *ngIf="bookingError" class="error">❌ {{ bookingError }}</div>
+  </div>
+</div>

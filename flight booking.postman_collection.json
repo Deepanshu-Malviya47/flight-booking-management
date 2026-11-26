@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "aa0e61c9-857b-4e0d-8761-03ea8328407a",
+		"name": "flight booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42529131",
+		"_collection_link": "https://ccccc6.postman.co/workspace/ccccc-Workspace~9be7866c-4f5e-407a-8a40-62b56af8c26a/collection/42529131-aa0e61c9-857b-4e0d-8761-03ea8328407a?action=share&source=collection_link&creator=42529131"
+	},
+	"item": [
+		{
+			"name": "register admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"krishnaji58g@gmail.com\",\r\n    \"username\": \"krishna47\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"deepanshumalviya58@gmail.com\",\r\n    \"username\": \"deepanshu47\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify otp admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"krishnaji58g@gmail.com\",\r\n    \"username\": \"krishna47\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/verify-otp/admin?=&otp=828209",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"verify-otp",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "otp",
+							"value": "828209"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify otp user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"deepanshumalviya58@gmail.com\",\r\n    \"username\": \"deepanshu47\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/verify-otp/admin?=&otp=828209",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"verify-otp",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "otp",
+							"value": "828209"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset password user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/auth/reset-password/user?email=deepanshumalviya58@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"reset-password",
+						"user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "deepanshumalviya58@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset password admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/auth/reset-password/admin?email=deepanshumalviya58@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"reset-password",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "deepanshumalviya58@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset verify otp user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"deepanshumalviya58@gmail.com\",\r\n    \"otp\": \"935975\",\r\n    \"newPassword\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/reset/verify-otp/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"reset",
+						"verify-otp",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset verify otp admin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"deepanshumalviya58@gmail.com\",\r\n    \"otp\": \"935975\",\r\n    \"newPassword\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/reset/verify-otp/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"reset",
+						"verify-otp",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"deepanshu21\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"deepanshu47\",\r\n    \"password\": \"Deep@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add flight",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0MzkzMjczLCJleHAiOjE3NDQ0MTEyNzN9.4-33pQQud-D-ST804nBs-6X7kn4mPOQmiIXpMS77158",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flightNumber\": \"BD-1234\",\r\n  \"airline\": \"Indigo\",\r\n  \"source\": \"Bhopal\",\r\n  \"destination\": \"Delhi\",\r\n  \"departureDate\": \"2025-05-10\",\r\n  \"fareDetails\": {\r\n    \"priceDetails\": {\r\n      \"ECONOMY_CLASS\": 3500.0,\r\n      \"BUSINESS_CLASS\": 6000.0,\r\n      \"FIRST_CLASS\": 8000.0,\r\n      \"PREMIUM_CLASS\": 5000.0\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search flight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"source\": \"Bhopal\",\r\n  \"destination\": \"Delhi\",\r\n  \"date\": \"2025-05-10\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all flights",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0MzkxOTU4LCJleHAiOjE3NDQ0MDk5NTh9.1nZsyA01pFzOuy1-HixilqLLDQPC_lSbwTWyYzj3qt8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/flights/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get flight by flight number",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0MzkzMjczLCJleHAiOjE3NDQ0MTEyNzN9.4-33pQQud-D-ST804nBs-6X7kn4mPOQmiIXpMS77158",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/flights/get/fjdh9385",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"get",
+						"fjdh9385"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete flight",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0MzkzMjczLCJleHAiOjE3NDQ0MTEyNzN9.4-33pQQud-D-ST804nBs-6X7kn4mPOQmiIXpMS77158",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/flights/delete/BD-1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"delete",
+						"BD-1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update flight",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0MzkzMjczLCJleHAiOjE3NDQ0MTEyNzN9.4-33pQQud-D-ST804nBs-6X7kn4mPOQmiIXpMS77158",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"airline\": \"Air India\",\r\n  \"fareDetails\": {\r\n    \"priceDetails\": {\r\n      \"ECONOMY_CLASS\": 3500.0,\r\n      \"BUSINESS_CLASS\": 6000.0,\r\n      \"FIRST_CLASS\": 8000.0,\r\n      \"PREMIUM_CLASS\": 5000.0\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/update/BD-1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"update",
+						"BD-1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payment pay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/payment/create-order?amount=5000&currency=INR&receiptId=Book-90",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payment",
+						"create-order"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "5000"
+						},
+						{
+							"key": "currency",
+							"value": "INR"
+						},
+						{
+							"key": "receiptId",
+							"value": "Book-90"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refund payment",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "paying using link",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/payment/booking.html?orderId=order_QIFmCZqGpGRy7W&amount=500000&currency=INR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"booking.html"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "order_QIFmCZqGpGRy7W"
+						},
+						{
+							"key": "amount",
+							"value": "500000"
+						},
+						{
+							"key": "currency",
+							"value": "INR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/payment/verify-payment?orderId=order_QIIuhCN1ZbZwFO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"payment",
+						"verify-payment"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "order_QIIuhCN1ZbZwFO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwic3ViIjoiZGVlcGFuc2h1NDciLCJpYXQiOjE3NDQ4MzM3NTQsImV4cCI6MTc0NDg1MTc1NH0.vjVQFucTLUCjAUfuMFh1XOzNsRhkKwMtmDfu_E8OIBg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Deepanshu Malviya\",\r\n  \"email\": \"deepanshumalviya58@gmail.com\",\r\n  \"contact\": \"9876543210\",\r\n  \"flightNumber\": \"BD_20250510_1530\",\r\n  \"seatType\": \"ECONOMY\",\r\n  \"noOfSeats\": 2,\r\n  \"currency\": \"INR\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/create-booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"create-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/jfdk545/confirm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"jfdk545",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel booking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/fjdks343/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"fjdks343",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all bookings",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6IkRlZXBhbnNodTIxIiwiaWF0IjoxNzQ0ODM1MDE1LCJleHAiOjE3NDQ4NTMwMTV9.RvPFx7DZ6ICOGVNBYYIqBHGRY7hqUKpLbT9jYvJyHg8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user get all bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user get by booking id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/user/fjdskj434",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"user",
+						"fjdskj434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/auth/checkin/fdsjk384",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"checkin",
+						"fdsjk384"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all checkin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/checkin/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"checkin",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

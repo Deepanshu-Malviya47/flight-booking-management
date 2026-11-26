@@ -1,0 +1,33 @@
+<div>
+    <div class="confirm-booking">
+    <div *ngIf="!isUserLoggedIn">
+            <p>You are not logged in.</p>
+            <button routerLink="/login">Go to Login</button>
+    </div>
+  <div *ngIf="isUserLoggedIn">
+    <h2>✅ Confirm Booking</h2>
+    <label>Booking ID:</label>
+    <input [(ngModel)]="bookingIdToConfirm" />
+
+    <button (click)="confirmBooking()">Confirm Booking</button>
+
+    <div *ngIf="confirmationResponse" class="success-box">
+        <p>🎉 Booking Confirmed: {{ confirmationResponse.bookingStatus }}</p>
+        <p>Check-in to get seat numbers.</p>
+    </div>
+
+    <div *ngIf="bookingError" class="error" class="error-box">
+        ❌ {{ bookingError }}
+        <div *ngIf="paymentPending">
+            <button (click)="hitPaymentUrl()">Click here to pay</button>
+        </div>
+    </div>
+
+     <div class="my-bookings-redirect">
+      <p>📄 Want to view your booking details?</p>
+      <button routerLink="/my-bookings">Go to My Bookings</button>
+    </div>
+
+</div>
+</div>
+</div>

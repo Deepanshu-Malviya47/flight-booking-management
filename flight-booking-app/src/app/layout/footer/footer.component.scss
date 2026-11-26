@@ -1,0 +1,24 @@
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #9b9292;
+  }
+  
+  .contact-info span {
+    margin-bottom: 5px;
+    font-size: 14px; 
+    font-weight: bolder;
+  }
+  
+  .contact-info p {
+    margin: 3px 0;
+    font-size: 12px;
+  }
+  
+  .copyright {
+    font-size: 20px; 
+}
+

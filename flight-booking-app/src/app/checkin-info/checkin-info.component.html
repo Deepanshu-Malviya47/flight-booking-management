@@ -1,0 +1,49 @@
+<div class="checkin-info-container">
+  <div *ngIf="!isUserLoggedIn" class="not-logged-in">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isUserLoggedIn" class="logged-in">
+    <h2>🧾 Check-In Information</h2>
+
+    <div>
+      <label>Booking ID:</label>
+      <input [(ngModel)]="bookingId" placeholder="Enter Booking ID" class="booking-input" />
+    </div>
+    <div class="getCheck">
+      <button (click)="fetchCheckinInfo()">Get Check-In Info</button>
+    </div>
+   
+
+    <div>
+          <table *ngIf="checkinInfo" class="info-table">
+      <tr>
+        <th>Checkin ID</th>
+        <td>{{ checkinInfo.checkinId }}</td>
+      </tr>
+      <tr>
+        <th>Booking ID</th>
+        <td>{{ checkinInfo.bookingId }}</td>
+      </tr>
+      <tr>
+        <th>Seat Type</th>
+        <td>{{ checkinInfo.seatType }}</td>
+      </tr>
+      <tr>
+        <th>Number of Seats</th>
+        <td>{{ checkinInfo.noOfSeats }}</td>
+      </tr>
+      <tr>
+        <th>Assigned Seats</th>
+        <td>{{ checkinInfo.assignedSeats.join(', ') }}</td>
+      </tr>
+    </table>
+    </div>
+
+
+    <div *ngIf="errorMessage" class="error-box">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

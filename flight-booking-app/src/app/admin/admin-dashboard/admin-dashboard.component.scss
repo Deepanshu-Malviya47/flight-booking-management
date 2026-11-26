@@ -1,0 +1,302 @@
+.dashboard-container {
+  padding: 50px;
+  min-height: 53vh;
+  margin: auto;
+  text-align: center;
+  background: url('../../../assets/images/admin-register-bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: #023938;
+}
+h1{
+  background-color: rgb(192, 186, 82);
+  border-radius: 6px;
+}
+
+.dashboard-options {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+
+.dashboard-btn {
+  background-color: #00bcd4;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-btn:hover {
+  background-color: #ffca2c;
+}
+
+
+
+.delete-flight-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.delete-input {
+  padding: 10px;
+  width: 60%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.message.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.message.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.update-flight-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.update-input {
+  padding: 10px;
+  width: 60%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+}
+
+.flight-info-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.flight-details {
+  margin-top: 15px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+}
+.results{
+  max-height: 70vh;
+  max-width: 70vw;
+  overflow: auto;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 1rem auto;
+
+  .update-input,
+  .delete-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #031660;
+      outline: none;
+    }
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+    color: #031660;
+  }
+
+  .error {
+    color: #d9534f;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+
+    .dashboard-btn,
+    .cancel-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dashboard-btn {
+      background-color: #031660;
+      color: #fff;
+
+      &:hover {
+        background-color: #062a8e;
+      }
+    }
+
+    .cancel-btn {
+      background-color: #ccc;
+      color: #333;
+
+      &:hover {
+        background-color: #b3b3b3;
+      }
+    }
+  }
+
+  .message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 500;
+
+    &.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    &.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  }
+}
+.delete-flight-section,
+.flight-info-section {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  color: #031660;
+
+  h3, h4 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #031660;
+  }
+
+  input {
+    width: 93%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #031660;
+      outline: none;
+    }
+  }
+
+  .error {
+    color: #d9534f;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .dashboard-btn,
+    .cancel-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dashboard-btn {
+      background-color: #031660;
+      color: #fff;
+
+      &:hover {
+        background-color: #062a8e;
+      }
+    }
+
+    .cancel-btn {
+      background-color: #ccc;
+      color: #333;
+
+      &:hover {
+        background-color: #b3b3b3;
+      }
+    }
+  }
+
+  .message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 500;
+
+    &.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    &.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  }
+
+  .flight-details {
+    margin-top: 1.5rem;
+    background-color: #f4f6fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    strong {
+      color: #031660;
+    }
+  }
+}

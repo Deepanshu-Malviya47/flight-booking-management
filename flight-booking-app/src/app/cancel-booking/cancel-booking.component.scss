@@ -1,0 +1,110 @@
+.cancel-booking-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3rem;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  overflow-y: auto;
+
+  .not-logged-in {
+    width: 100%;
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0097a7;
+      }
+    }
+  }
+
+  .logged-in {
+    width: 100%;
+    max-width: 800px;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #d32f2f;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #d32f2f;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #b71c1c;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+
+    .error-box {
+      margin-top: 0.5rem;
+      color: #d32f2f;
+      font-weight: 500;
+      background-color: #ffe6e6;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+
+    .message {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+
+      &.success {
+        background-color: #e0f7fa;
+        color: #00796b;
+      }
+
+      &.error {
+        background-color: #ffebee;
+        color: #c62828;
+      }
+    }
+  }
+}

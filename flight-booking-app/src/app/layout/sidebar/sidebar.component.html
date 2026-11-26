@@ -1,0 +1,38 @@
+<nav class="sidebar-nav">
+  <ul>
+    <!-- Flight Options Dropdown -->
+    <li class="dropdown">
+      <button class="dropdown-toggle" (click)="toggleFlightDropdown()">
+        ✈️ Flight Options ▼
+      </button>
+      <ul class="dropdown-menu" *ngIf="flightDropdownOpen">
+        <li routerLink="/" routerLinkActive="active">🔭 Flight Search</li>
+        <li routerLink="/flight-info" routerLinkActive="active">🔍 View Flight Info</li>
+      </ul>
+    </li>
+
+    <!-- Booking Options Dropdown -->
+    <li class="dropdown">
+      <button class="dropdown-toggle" (click)="toggleBookingDropdown()">
+        📦 Booking Options ▼
+      </button>
+      <ul class="dropdown-menu" *ngIf="bookingDropdownOpen">
+        <li routerLink="/book-flight" routerLinkActive="active">📝 Book a Flight</li>
+        <li routerLink="/confirm-booking" routerLinkActive="active">✅ Confirm Booking</li>
+        <li routerLink="/cancel-booking" routerLinkActive="active">❌ Cancel Booking</li>
+        <li routerLink="/my-bookings" routerLinkActive="active">📄 My Bookings</li>
+        <li routerLink="/booking-info" routerLinkActive="active">🔍 Booking Information</li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <button class="dropdown-toggle" (click)="toggleCheckinDropdown()">
+        🛫 Check-In Options ▼
+      </button>
+      <ul class="dropdown-menu" *ngIf="checkinDropdownOpen">
+        <li routerLink="/checkin" routerLinkActive="active">🧳 Start Check-In</li>
+        <li routerLink="/checkin-info" routerLinkActive="active">🎫 Check-In information</li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>

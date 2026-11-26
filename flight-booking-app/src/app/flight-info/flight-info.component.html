@@ -1,0 +1,51 @@
+<div class="flight-info-section">
+
+        <div *ngIf="!isUserLoggedIn">
+            <p>You are not logged in.</p>
+            <button routerLink="/login">Go to Login</button>
+        </div>
+        
+        <div  class="outer" *ngIf="isUserLoggedIn">
+
+            <div class="div1">
+                 <h3>🔍 View Flight Info</h3>
+
+        <input
+            type="text"
+            (ngModelChange)="clearFlightError()"
+            [(ngModel)]="flightNumberToView"
+            name="flightNumberToView"
+            #flightInfoRef="ngModel"
+            required
+            placeholder="Enter Flight Number"
+            class="update-input"
+        />
+        <div class="error" *ngIf="flightInfoRef.invalid && (flightInfoRef.touched || flightInfoRef.dirty)">
+            Flight number must not be blank.
+        </div>
+
+        <button class="dashboard-btn" (click)="viewFlightInfo()">Get Info</button>
+
+         <div class="message error" *ngIf="flightInfoError">{{ flightInfoError }}</div>
+      </div>
+            
+
+       
+
+        <div *ngIf="flightInfo" id="flight-card">
+            <h4>🎉 Flight Details</h4>
+            <p><strong>Flight #:</strong> {{ flightInfo.flightNumber }}</p>
+            <p><strong>Airline:</strong> {{ flightInfo.airline }}</p>
+            <p><strong>Source:</strong> {{ flightInfo.source }}</p>
+            <p><strong>Destination:</strong> {{ flightInfo.destination }}</p>
+            <p><strong>Departure Date:</strong> {{ flightInfo.departureDate }}</p>
+            <p><strong>Departure Time:</strong> {{ flightInfo.departureTime }}</p>
+            <div>
+            <strong>Fare Details:</strong>
+            <div class="fareDetails" *ngFor="let fare of flightInfo.fareDetails?.priceDetails | keyvalue">
+                {{ fare.key }}: ₹{{ fare.value }}
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>

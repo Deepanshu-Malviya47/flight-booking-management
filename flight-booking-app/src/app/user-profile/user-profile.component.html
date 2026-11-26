@@ -1,0 +1,46 @@
+<div class="user-profile">
+  
+
+  <div *ngIf="!isLoggedIn">
+    <p>You are not logged in.</p>
+    <button routerLink="/login">Go to Login</button>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <h2>🧑🏻 User Profile</h2>
+    <!-- Existing profile content goes here -->
+    <div *ngIf="userInfo">
+      <p><strong>👤Username:</strong> {{ userInfo.username }}</p>
+      <p><strong>✉️ Email:</strong> {{ userInfo.email }}</p>
+      <p><strong>🙋‍♂️ Role:</strong> {{ userInfo.role }}</p>
+    </div>
+
+    <button (click)="logout()">Logout ➜]</button>
+
+    <button (click)="showDeletePrompt = true" *ngIf="!showDeletePrompt">🗑️ Delete Account</button>
+
+    <div *ngIf="showDeletePrompt">
+      <form [formGroup]="deleteForm">
+        <h3>Confirm Account Deletion</h3>
+        <input formControlName="password" type="password" placeholder="Enter your password" />
+        <div *ngIf="deleteForm.get('password')?.touched && deleteForm.get('password')?.invalid" class="error">
+          Password is required
+        </div>
+
+        <p class="warning">Enter password to delete account.</p>
+
+        <div class="buttons">
+          <button type="button" (click)="confirmDelete()">Yes, Delete</button>
+        <button type="button" (click)="cancelDelete()">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div>  
+      <div *ngIf="message" class="success-box">{{ message }}</div>
+      <div *ngIf="errorMessage" class="error-box">{{ errorMessage }}</div>
+    </div>
+  </div>
+
+</div>

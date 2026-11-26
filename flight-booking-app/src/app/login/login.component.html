@@ -1,0 +1,64 @@
+<div class="login-container">
+  <h2 routerLink="/login">🔐 Login</h2>
+
+  <div>
+    <!-- Login Form -->
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" *ngIf="!showForgot && !showReset">
+    <input formControlName="username" placeholder="Username" />
+    <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" class="error">
+      Username must be 3–20 characters, letters/numbers/underscores only
+    </div>
+
+    <input formControlName="password" type="password" placeholder="Password" />
+    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error">
+      Password must be 8+ chars, with uppercase, lowercase, digit & special character
+    </div>
+
+    <button type="submit">Login</button>
+    <p class="forgot-link" (click)="toggleForgot()">Forgot Password?</p>
+  </form>
+
+  <!-- Forgot Password Form -->
+  <form [formGroup]="forgotForm" (ngSubmit)="onForgot()" *ngIf="showForgot && !showReset">
+    <h3>Forgot Password</h3>
+
+    <input formControlName="email" type="email" placeholder="Enter your email" />
+    <div *ngIf="forgotForm.get('email')?.touched && forgotForm.get('email')?.invalid" class="error">
+      Please enter a valid email address
+    </div>
+
+    <button type="submit" [disabled]="isForgotSubmitting">Send OTP</button>
+    <p class="back-link" (click)="toggleLogin()">Back to Login</p>
+  </form>
+
+  <!-- Reset Password Form -->
+  <form [formGroup]="resetForm" (ngSubmit)="onReset()" *ngIf="showReset">
+    <h3>Reset Password</h3>
+
+    <input formControlName="email" type="email" placeholder="Email" />
+    <div *ngIf="resetForm.get('email')?.touched && resetForm.get('email')?.invalid" class="error">
+      Please enter a valid email address
+    </div>
+
+    <input formControlName="otp" placeholder="OTP" />
+    <div *ngIf="resetForm.get('otp')?.touched && resetForm.get('otp')?.invalid" class="error">
+      OTP must be exactly 6 digits
+    </div>
+
+    <input formControlName="newPassword" type="password" placeholder="New Password" />
+    <div *ngIf="resetForm.get('newPassword')?.touched && resetForm.get('newPassword')?.invalid" class="error">
+      Password must be at least 8 characters long and include uppercase, lowercase, digit, and special character
+    </div>
+
+    <button type="submit">Reset Password</button>
+    <p class="back-link" (click)="toggleLogin()">Back to Login</p>
+
+    
+  </form>
+  <!-- Feedback Messages -->
+  <div *ngIf="message" class="success-box">{{ message }}</div>
+  <div *ngIf="errorMessage" class="error-box">{{ errorMessage }}</div>
+
+  </div>
+  
+</div>

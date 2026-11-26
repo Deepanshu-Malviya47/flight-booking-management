@@ -1,0 +1,42 @@
+<div class="booking-list-container">
+  <h3>📑 All Bookings</h3>
+
+  <div *ngIf="bookings.length === 0 && !errorMessage" class="empty-box">
+    No bookings available.
+  </div>
+
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="bookings.length > 0">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Flight #</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Seat Type</th>
+        <th>Seats</th>
+        <th>Currency</th>
+        <th>Status</th>
+        <th>Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking.bookingId }}</td>
+        <td>{{ booking.flightNumber }}</td>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.email }}</td>
+        <td>{{ booking.contact }}</td>
+        <td>{{ booking.seatType }}</td>
+        <td>{{ booking.noOfSeats }}</td>
+        <td>{{ booking.currency }}</td>
+        <td>{{ booking.bookingStatus }}</td>
+        <td>{{ booking.paymentStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

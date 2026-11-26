@@ -1,0 +1,113 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 59vh;
+  background: url('../../assets/images/admin-register-bg.jpg') no-repeat center center;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  padding: 2rem;
+  justify-content: space-around;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #000000;
+  }
+
+  form {
+    background-color: rgba(30, 30, 47, 0.85);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 35vw;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00bcd4;
+    }
+
+    input {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    button {
+      padding: 0.75rem;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0097a7;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+
+    .error {
+      background-color: #ffe6e6;
+      color: #d32f2f;
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .forgot-link,
+    .back-link {
+      text-align: center;
+      margin-top: 1rem;
+      color: #00bcd4;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: #0097a7;
+      }
+    }
+  }
+
+  .success-box,
+  .error-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+
+    &.success-box {
+      border-left: 6px solid #00bcd4;
+    }
+
+    &.error-box {
+      border-left: 6px solid #d32f2f;
+    }
+  }
+  .card-container{
+    display: flex;
+    align-items: normal;
+    justify-content: space-around;
+  }
+}

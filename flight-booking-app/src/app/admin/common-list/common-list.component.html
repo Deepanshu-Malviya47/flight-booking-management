@@ -1,0 +1,40 @@
+<div class="flight-list-container">
+  <h3>✈️ All Flights</h3>
+
+  <div *ngIf="flights?.length === 0 && !errorMessage" class="empty-box">
+    No flights available.
+  </div>
+
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="flights.length > 0">
+    <thead>
+      <tr>
+        <th>Flight Number</th>
+        <th>Airline</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Fare Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights">
+        <td>{{ flight.flightNumber }}</td>
+        <td>{{ flight.airline }}</td>
+        <td>{{ flight.source }}</td>
+        <td>{{ flight.destination }}</td>
+        <td>{{ flight.departureDate }}</td>
+        <td>{{ flight.departureTime }}</td>
+        <td>
+          <div *ngFor="let key of flight.fareDetails?.priceDetails | keyvalue">
+            {{ key.key }}: ₹{{ key.value }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

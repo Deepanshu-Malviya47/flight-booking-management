@@ -1,0 +1,22 @@
+.main-layout {
+  display: flex;
+  height: calc(100vh - 150px); // 60px navbar + 60px footer
+  box-sizing: border-box;
+}
+
+app-sidebar {
+  flex-shrink: 0;         // Sidebar won't shrink
+  flex-grow: 0;           // Sidebar won't grow
+  width: auto;            // Let sidebar size itself based on content
+  max-width: 40%;         // Optional: prevent sidebar from overtaking the screen
+  overflow-x: auto;       // Allow horizontal scroll if needed
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  height: 90%; // fills remaining vertical space
+  scroll-behavior: smooth;
+}

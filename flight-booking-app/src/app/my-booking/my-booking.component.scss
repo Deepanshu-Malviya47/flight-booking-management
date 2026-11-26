@@ -1,0 +1,122 @@
+.booking-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/assets/images/my-bookings-bg.jpg') no-repeat center center;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000000;
+  padding: 2rem;
+
+  .not-logged-in {
+    text-align: center;
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0097a7;
+      }
+    }
+  }
+
+  .logged-in {
+    background-color: rgba(30, 30, 47, 0.85);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00bcd4;
+    }
+
+    .nav-button {
+      text-align: right;
+      margin-bottom: 1rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        background-color: #00bcd4;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0097a7;
+        }
+      }
+    }
+
+    .empty-box,
+    .error-box {
+      background-color: #ffe6e6;
+      color: #d32f2f;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      font-size: 0.85rem;
+      border-collapse: collapse;
+      background-color: #fff;
+      color: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+
+      thead {
+        background-color: #1e1e2f;
+        color: #fff;
+
+        th {
+          padding: 0.6rem;
+          text-align: left;
+          font-weight: 600;
+        }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background-color: #f9f9f9;
+          }
+
+          &:hover {
+            background-color: #eef6f9;
+          }
+
+          td {
+            padding: 0.6rem;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+.table-booking {
+  max-width: 70vw;
+  overflow: auto;
+}

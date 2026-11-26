@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="both-container">
+  <div>
+    <h2>🔍 Search Flights</h2>
+  </div>
+  <div>
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
+    <input formControlName="source" placeholder="Source" />
+    <div *ngIf="searchForm.get('source')?.invalid && searchForm.get('source')?.touched" class="error">
+      Source is required
+    </div>
+
+    <input formControlName="destination" placeholder="Destination" />
+    <div *ngIf="searchForm.get('destination')?.invalid && searchForm.get('destination')?.touched" class="error">
+      Destination is required
+    </div>
+
+    <input formControlName="date" type="date" />
+    <div *ngIf="searchForm.get('date')?.invalid && searchForm.get('date')?.touched" class="error">
+      Valid date is required
+    </div>
+
+    <button type="submit" [disabled]="searchForm.invalid || loading">
+      {{ loading ? 'Searching...' : 'Search Flights' }}
+    </button>
+      <!-- Error message -->
+      <div *ngIf="errorMessage" class="error-box">
+        {{ errorMessage }}
+      </div>
+  </form>
+
+  </div>
+  </div>
+  <!-- Flight results -->
+  <div *ngIf="flights.length > 0">
+    <h3>Available Flights 🛫</h3 >
+      <div class="card-container ">
+        
+         <div id="flight-card" *ngFor="let flight of flights"  (click)="goToBooking(flight.flightNumber)"  >
+      <p><strong>{{ flight.airline }}</strong> ({{ flight.flightNumber }})</p>
+      <p>{{ flight.source }} → {{ flight.destination }}</p>
+      <p>Date: {{ flight.departureDate }} | Time: {{ flight.departureTime }}</p>
+      <div *ngIf="flight.fareDetails?.priceDetails">
+        <p>Prices:</p>
+        <ul>
+          <li *ngFor="let seat of seatTypes">
+            {{ formatSeatType(seat) }}: ₹{{ flight.fareDetails.priceDetails[seat] || 'N/A' }}
+          </li>
+        </ul>
+      </div>
+    </div>
+      </div>
+   
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+
+
+<nav class="navbar">
+  
+ <div class="navbar-left" routerLink="/" title="Home">
+    <span class="app-name">🗺️⁀જ✈︎  Flight Booking System</span>
+</div>
+<div class="navbar-right">
+   
+  <!-- Show only if NOT logged in -->
+  <ng-container *ngIf="!isLoggedIn">
+    <button class="nav-btn" routerLink="/register">Login / Register 👤 </button>
+    <button class="nav-btn admin" (click)="goToAdminDashboard()">Admin Login  </button>
+  </ng-container>
+
+  <!-- Show only if logged in -->
+  <ng-container *ngIf="isLoggedIn">
+    <button class="nav-btn" (click)="logout()">Logout ➜] </button>
+  </ng-container>
+
+  <div class="profile-icon" routerLink="/profile" title="Profile">
+    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile" />
+  </div>
+</div>
+</nav>

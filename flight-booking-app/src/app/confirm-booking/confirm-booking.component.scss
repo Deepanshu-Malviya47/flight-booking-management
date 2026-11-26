@@ -1,0 +1,104 @@
+
+.confirm-booking {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: url('../../assets/images/admin-register-bg.jpg') no-repeat center center;
+  background-size: cover;
+  
+  
+  box-shadow: 0 5px 12px rgba(2, 2, 2, 0.521);
+
+  h2 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
+
+  .error {
+    color: #d32f2f;
+    background-color: #fdecea;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+
+    button {
+      background-color: #c62828;
+
+      &:hover {
+        background-color: #b71c1c;
+      }
+    }
+  }
+
+  .my-bookings-redirect {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #4f2d2d;
+    font-weight: 1000;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background-color: #388e3c;
+
+      &:hover {
+        background-color: #2e7d32;
+      }
+    }
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+  .success-box,
+  .error-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+
+    &.success-box {
+      border-left: 6px solid #00bcd4;
+    }
+
+    &.error-box {
+      border-left: 6px solid #d32f2f;
+    }
+  }
+}

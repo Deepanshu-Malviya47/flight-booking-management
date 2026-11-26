@@ -1,0 +1,31 @@
+<div class="start-checkin-container">
+    <div *ngIf="!isUserLoggedIn">
+            <p>You are not logged in.</p>
+            <button routerLink="/login">Go to Login</button>
+        </div>
+        <div *ngIf="isUserLoggedIn">
+            <!-- src/app/components/start-checkin/start-checkin.component.html -->
+            <div class="checkin-container">
+            <h2>👨🏻‍💻 Start Check-In</h2>
+
+            <label>
+                Booking ID:
+                <input [(ngModel)]="bookingId" placeholder="Enter Booking ID" />
+            </label>
+
+            <button (click)="startCheckin()">Check-In</button>
+
+            <div *ngIf="checkinResult" class="info">
+                <h3>Check-In Successful!</h3>
+                <p><strong>Checkin ID:</strong> {{ checkinResult.checkinId }}</p>
+                <p><strong>Booking ID:</strong> {{ checkinResult.bookingId }}</p>
+                <p><strong>Seat Type:</strong> {{ checkinResult.seatType }}</p>
+                <p><strong>Seats Assigned:</strong> {{ checkinResult.assignedSeats.join(', ') }}</p>
+            </div>
+
+            <div *ngIf="errorMessage" class="error">
+                {{ errorMessage }}
+            </div>
+            </div>
+        </div>
+    </div>
